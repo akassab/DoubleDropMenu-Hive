@@ -49,4 +49,4 @@ function SubGroupDropDown() {
     );
 }
 
-export default SubGroupDropDown;
+module.exports = { DEFAULT_SUBGROUP, SubGroupDropDown };

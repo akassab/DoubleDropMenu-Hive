@@ -5,6 +5,7 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
+import { DEFAULT_SUBGROUP } from "./index";
 
 /*
   - The SingleSelectDropDown component will contain a list of group names. Upon
@@ -17,7 +18,7 @@ const SingleSelectDropDown = memo((props) => {
     // Get component props
     const { items, onSelect: setList } = props;
 
-    const [item, setItem] = useState("Numbers");
+    const [item, setItem] = useState(DEFAULT_SUBGROUP);
 
     // Callback when a user selects an item from the primary drop-down menu.
     const handleChange = (event) => {

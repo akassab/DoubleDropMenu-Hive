@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import SubGroupDropDown from "./components/SubGroupDropDown";
+import { SubGroupDropDown } from "./components/SubGroupDropDown";
 
 function App() {
     return (

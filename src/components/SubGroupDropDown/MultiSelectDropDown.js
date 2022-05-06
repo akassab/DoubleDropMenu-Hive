@@ -6,6 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
+import { DEFAULT_SUBGROUP } from "./index";
 
 /*
   - The MultiSelectDropDown component will contain a list of values from the group
@@ -76,7 +77,7 @@ const MultiSelectDropDown = memo((props) => {
 // Default props for this component
 MultiSelectDropDown.defaultProps = {
     items: [],
-    dropDownName: "Numbers",
+    dropDownName: DEFAULT_SUBGROUP,
 };
 
 export default MultiSelectDropDown;
