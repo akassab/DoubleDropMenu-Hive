@@ -1,5 +1,5 @@
 // The default group
-const DEFAULT_GROUP = "Names";
+const DEFAULT_GROUP = "Numbers";
 
 /* 
     Dictionary where the keys (item/group) will be displayed in the first drop-down,

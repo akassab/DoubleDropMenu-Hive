@@ -9,7 +9,7 @@ import {
     Select,
 } from "@mui/material";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
-import { DEFAULT_GROUP } from "./_menu-items";
+import { DEFAULT_GROUP, GROUPS } from "./_menu-items";
 
 /*
   - The MultiSelectDropDown component will contain a list of values from the group
@@ -41,8 +41,8 @@ const MultiSelectDropDown = memo((props) => {
     );
 
     /* Called when the items array changes. This makes sure that whenever the
-  dropDownName value changes, we clear the selected items.
-*/
+        dropDownName value changes, we clear the selected items.
+    */
     useEffect(() => {
         setSelected({ selected: [] });
         setItem([]);
@@ -73,7 +73,16 @@ const MultiSelectDropDown = memo((props) => {
                     ))}
                 </Select>
             </FormControl>
-            <br/>
+            <br />
+            <Button
+                variant="contained"
+                onClick={() => {
+                    setSelected({ selected: items });
+                    setItem(items);
+                }}
+            >
+                Select All
+            </Button>
             <Button
                 onClick={() => {
                     setSelected({ selected: [] });
@@ -88,7 +97,7 @@ const MultiSelectDropDown = memo((props) => {
 
 // Default props for this component
 MultiSelectDropDown.defaultProps = {
-    items: [],
+    items: GROUPS[DEFAULT_GROUP],
     dropDownName: DEFAULT_GROUP,
 };
 

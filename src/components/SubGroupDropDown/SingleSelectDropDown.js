@@ -1,7 +1,13 @@
 import React, { memo, useState } from "react";
-import { FormControl, InputLabel, ListItemText, MenuItem, Select } from "@mui/material";
+import {
+    FormControl,
+    InputLabel,
+    ListItemText,
+    MenuItem,
+    Select,
+} from "@mui/material";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
-import { DEFAULT_GROUP } from "./_menu-items";
+import { DEFAULT_GROUP, GROUPS } from "./_menu-items";
 
 /*
   - The SingleSelectDropDown component will contain a list of group names. Upon
@@ -24,10 +30,10 @@ const SingleSelectDropDown = memo((props) => {
         setItem(handleAutoFill(value));
 
         /* - Use this set-state hook to notify the MultiSelectDropDown component,
-        of the newly selected group.
-       - This will allow the MultiSelectDropDown to re-render since the component's
-        prop values change.
-    */
+            of the newly selected group.
+           - This will allow the MultiSelectDropDown to re-render since the component's
+            prop values change.
+        */
         setList(value);
     };
 
@@ -55,7 +61,7 @@ const SingleSelectDropDown = memo((props) => {
 
 // Default props for this component
 SingleSelectDropDown.defaultProps = {
-    items: [],
+    items: Object.keys(GROUPS),
     onSelect: () => {},
 };
 
