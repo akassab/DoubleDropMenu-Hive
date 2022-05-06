@@ -1,9 +1,5 @@
 import React, { memo, useState } from "react";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import ListItemText from "@mui/material/ListItemText";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import { FormControl, InputLabel, ListItemText, MenuItem, Select } from "@mui/material";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
 import { DEFAULT_SUBGROUP } from "./index";
 
