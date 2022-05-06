@@ -26,18 +26,15 @@ const MultiSelectDropDown = memo((props) => {
     const [selected, setSelected] = useState({ selected: [] });
 
     // Callback when a user selects an item from the secondary drop-down menu.
-    const handleChange = useCallback(
-        (event) => {
-            const {
-                target: { value },
-            } = event;
-            setItem(handleAutoFill(value));
+    const handleChange = (event) => {
+        const {
+          target: { value },
+        } = event;
+        setItem(handleAutoFill(value));
 
-            // Keep track of the selected items so far.
-            setSelected({ selected: value });
-        },
-        [setSelected]
-    );
+        // Keep track of the selected items so far.
+        setSelected({ selected: value });
+      };
 
     /* Called when the items array changes. This makes sure that whenever the
         dropDownName value changes, we clear the selected items.
