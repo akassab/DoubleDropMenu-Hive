@@ -1,56 +1,48 @@
-import React, { useState, memo, useEffect, useCallback } from "react";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import ListItemText from "@mui/material/ListItemText";
-import Select from "@mui/material/Select";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
-import handleAutoFill from "./_helpers";
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
-
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import ListItemText from "@mui/material/ListItemText";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
 
 const MultiSelectDropDown = memo((props) => {
+    // Get component props
     const { items, dropDownName } = props;
 
     const [item, setItem] = useState([]);
 
+    // List of selected items from the secondary menu.
     const [selected, setSelected] = useState({ selected: [] });
 
+    // Callback when a user selects an item from the secondary drop-down menu.
     const handleChange = useCallback(
         (event) => {
             const {
                 target: { value },
             } = event;
             setItem(handleAutoFill(value));
+
+            // Keep track of the selected items so far.
             setSelected({ selected: value });
         },
         [setSelected]
     );
 
-    const capitalizeName = useCallback(() => {
-        return dropDownName.charAt(0).toUpperCase() + dropDownName.slice(1);
-    }, [dropDownName]);
-
+    /* Called when the items array changes. This makes sure that whenever the
+      dropDownName value changes, we clear the selected items.
+   */
     useEffect(() => {
         setSelected({ selected: [] });
         setItem([]);
-    }, [items]);
+    }, [dropDownName]);
 
     return (
         <div>
-            <FormControl sx={{ m: 1, width: 300 }}>
+            <FormControl sx={formStyles}>
                 <InputLabel id="demo-multiple-checkbox-label">
-                    {capitalizeName()}
+                    {dropDownName}
                 </InputLabel>
                 <Select
                     labelId="demo-multiple-checkbox-label"
@@ -61,7 +53,6 @@ const MultiSelectDropDown = memo((props) => {
                     renderValue={() => {
                         return selected.selected.join(", ");
                     }}
-                    input={""}
                     MenuProps={MenuProps}
                 >
                     {items.map((name) => (
@@ -76,6 +67,7 @@ const MultiSelectDropDown = memo((props) => {
     );
 });
 
+// Default props for this component
 MultiSelectDropDown.defaultProps = {
     items: [],
     dropDownName: "Numbers",
