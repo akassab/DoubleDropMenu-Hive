@@ -1,9 +1,11 @@
 import React, { memo, useState } from "react";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import ListItemText from "@mui/material/ListItemText";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import {
+    FormControl,
+    InputLabel,
+    ListItemText,
+    MenuItem,
+    Select,
+} from "@mui/material";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
 
 /*
@@ -15,9 +17,9 @@ import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
  */
 const SingleSelectDropDown = memo((props) => {
     // Get component props
-    const { items, onSelect: setList } = props;
+    const { defaultGroup, items, onSelect: setList } = props;
 
-    const [item, setItem] = useState("Numbers");
+    const [item, setItem] = useState(defaultGroup);
 
     // Callback when a user selects an item from the primary drop-down menu.
     const handleChange = (event) => {
@@ -55,11 +57,5 @@ const SingleSelectDropDown = memo((props) => {
         </div>
     );
 });
-
-// Default props for this component
-SingleSelectDropDown.defaultProps = {
-    items: [],
-    onSelect: () => {},
-};
 
 export default SingleSelectDropDown;

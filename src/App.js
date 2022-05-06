@@ -1,45 +1,34 @@
 import "./App.css";
-import React, { useState } from "react";
-import MultiSelectDropDown from "./components/dropdowns/MultiSelectDropDown";
-import SingleSelectDropDown from "./components/dropdowns/SingleSelectDropDown";
+import React from "react";
+import DoubleDropDown from "./components/DoubleDropDown";
 
 function App() {
-    /* Dictionary where the keys (item) will be displayed in the first drop-down,
-      and when the user selects the key (item) from the dropdown, the associated
-      values will be displayed in the second drop-down.
+    /*
+    Dictionary where the keys (item/group) will be displayed in the first drop-down,
+    and when the user selects the key (item/group) from the dropdown, the associated
+    values will be displayed in the second drop-down.
+    */
 
-      To avoid re-rendering, React.memo is wraps both the MultiSelectDropDown
-      and SingleSelectDropDown. For example, if an update occurs on the page
-      and none of the values passed as props to the MultiSelectDropDown component
-      change, then the MultiSelectDropDown will not be re-rendered!
-   */
-    const lists = {
+    // The default group for group1
+    const defaultGroup1 = "Numbers";
+    const groups1 = {
         Numbers: [1, 2, 3, 4, 5],
-        Names: [
-            "Oliver Hansen",
-            "Van Henry",
-            "April Tucker",
-            "Ralph Hubbard",
-            "Omar Alexander",
-            "Carlos Abbott",
-            "Miriam Wagner",
-            "Bradley Wilkerson",
-            "Virginia Andrews",
-            "Kelly Snyder",
-        ],
+        Letters: ["A", "B", "C", "D"],
     };
 
-    // The default lists will use "Numbers" as the initial state.
-    const [list, setList] = useState("Numbers");
+    // More examples to demonstrate flexible API
+    const defaultGroup2 = "OS";
+    const groups2 = {
+        Colors: ["red", "orange"],
+        OS: ["Iphone", "Android"],
+    };
 
     return (
         <div className="App">
             <header className="App-header">
-                <SingleSelectDropDown
-                    items={Object.keys(lists)}
-                    onSelect={setList}
-                />
-                <MultiSelectDropDown dropDownName={list} items={lists[list]} />
+                <DoubleDropDown defaultGroup={defaultGroup1} groups={groups1} />
+                <br/>
+                <DoubleDropDown defaultGroup={defaultGroup2} groups={groups2} />
             </header>
         </div>
     );
