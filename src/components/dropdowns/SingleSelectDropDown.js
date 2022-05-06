@@ -6,6 +6,13 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
 
+/*
+  - The SingleSelectDropDown component will contain a list of group names. Upon
+      selecting an item, the associated values will be displayed in the
+      MultiSelectDropDownMenu component.
+  - The component is wrapped with memo to avoid re-rendering the component when
+      the component's prop values don't change.
+ */
 const SingleSelectDropDown = memo((props) => {
     // Get component props
     const { items, onSelect: setList } = props;
