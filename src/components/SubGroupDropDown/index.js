@@ -13,6 +13,9 @@ import SingleSelectDropDown from "./SingleSelectDropDown";
     change, then the MultiSelectDropDown will not be re-rendered!
 */
 
+// The default subgroup
+const DEFAULT_SUBGROUP = "Names";
+
 const lists = {
     Numbers: [1, 2, 3, 4, 5],
     Names: [
@@ -34,7 +37,7 @@ const lists = {
  */
 function SubGroupDropDown() {
     // The default lists will use "Numbers" as the initial state.
-    const [list, setList] = useState("Numbers");
+    const [list, setList] = useState(DEFAULT_SUBGROUP);
 
     return (
         <>
