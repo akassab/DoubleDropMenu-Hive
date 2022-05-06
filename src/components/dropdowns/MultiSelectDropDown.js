@@ -7,6 +7,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
 
+/*
+  - The MultiSelectDropDown component will contain a list of values from the group
+     selected from the SingleSelectDropDown component.
+  - The component is wrapped with memo to avoid re-rendering the component when
+      the component's prop values don't change.
+ */
 const MultiSelectDropDown = memo((props) => {
     // Get component props
     const { items, dropDownName } = props;
