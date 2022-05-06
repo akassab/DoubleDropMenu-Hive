@@ -73,6 +73,15 @@ const MultiSelectDropDown = memo((props) => {
                     ))}
                 </Select>
             </FormControl>
+            <br/>
+            <Button
+                onClick={() => {
+                    setSelected({ selected: [] });
+                    setItem([]);
+                }}
+            >
+                Clear Selection
+            </Button>
         </div>
     );
 });
