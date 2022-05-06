@@ -9,7 +9,6 @@ import {
     Select,
 } from "@mui/material";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
-import { DEFAULT_GROUP, GROUPS } from "./_menu-items";
 
 /*
   - The MultiSelectDropDown component will contain a list of values from the group
@@ -94,11 +93,5 @@ const MultiSelectDropDown = memo((props) => {
         </div>
     );
 });
-
-// Default props for this component
-MultiSelectDropDown.defaultProps = {
-    items: GROUPS[DEFAULT_GROUP],
-    dropDownName: DEFAULT_GROUP,
-};
 
 export default MultiSelectDropDown;
