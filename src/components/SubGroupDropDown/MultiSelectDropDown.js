@@ -1,12 +1,15 @@
 import React, { memo, useCallback, useEffect, useState } from "react";
-import Checkbox from "@mui/material/Checkbox";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import ListItemText from "@mui/material/ListItemText";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import {
+    Button,
+    Checkbox,
+    FormControl,
+    InputLabel,
+    ListItemText,
+    MenuItem,
+    Select,
+} from "@mui/material";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
-import { DEFAULT_SUBGROUP } from "./index";
+import { DEFAULT_GROUP } from "./_menu-items";
 
 /*
   - The MultiSelectDropDown component will contain a list of values from the group
@@ -38,8 +41,8 @@ const MultiSelectDropDown = memo((props) => {
     );
 
     /* Called when the items array changes. This makes sure that whenever the
-    dropDownName value changes, we clear the selected items.
- */
+  dropDownName value changes, we clear the selected items.
+*/
     useEffect(() => {
         setSelected({ selected: [] });
         setItem([]);
@@ -70,6 +73,15 @@ const MultiSelectDropDown = memo((props) => {
                     ))}
                 </Select>
             </FormControl>
+            <br/>
+            <Button
+                onClick={() => {
+                    setSelected({ selected: [] });
+                    setItem([]);
+                }}
+            >
+                Clear Selection
+            </Button>
         </div>
     );
 });
@@ -77,7 +89,7 @@ const MultiSelectDropDown = memo((props) => {
 // Default props for this component
 MultiSelectDropDown.defaultProps = {
     items: [],
-    dropDownName: DEFAULT_SUBGROUP,
+    dropDownName: DEFAULT_GROUP,
 };
 
 export default MultiSelectDropDown;

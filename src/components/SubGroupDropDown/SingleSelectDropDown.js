@@ -1,11 +1,7 @@
 import React, { memo, useState } from "react";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import ListItemText from "@mui/material/ListItemText";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import { FormControl, InputLabel, ListItemText, MenuItem, Select } from "@mui/material";
 import { formStyles, handleAutoFill, MenuProps } from "./_helpers";
-import { DEFAULT_SUBGROUP } from "./index";
+import { DEFAULT_GROUP } from "./_menu-items";
 
 /*
   - The SingleSelectDropDown component will contain a list of group names. Upon
@@ -18,7 +14,7 @@ const SingleSelectDropDown = memo((props) => {
     // Get component props
     const { items, onSelect: setList } = props;
 
-    const [item, setItem] = useState(DEFAULT_SUBGROUP);
+    const [item, setItem] = useState(DEFAULT_GROUP);
 
     // Callback when a user selects an item from the primary drop-down menu.
     const handleChange = (event) => {
