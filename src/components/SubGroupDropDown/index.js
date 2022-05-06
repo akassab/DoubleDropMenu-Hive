@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import MultiSelectDropDown from "./MultiSelectDropDown";
 import SingleSelectDropDown from "./SingleSelectDropDown";
 
+// The default subgroup
+const DEFAULT_SUBGROUP = "Names";
+
 /* 
     Dictionary where the keys (item) will be displayed in the first drop-down,
     and when the user selects the key (item) from the dropdown, the associated
@@ -12,10 +15,6 @@ import SingleSelectDropDown from "./SingleSelectDropDown";
     and none of the values passed as props to the MultiSelectDropDown component
     change, then the MultiSelectDropDown will not be re-rendered!
 */
-
-// The default subgroup
-const DEFAULT_SUBGROUP = "Names";
-
 const lists = {
     Numbers: [1, 2, 3, 4, 5],
     Names: [
