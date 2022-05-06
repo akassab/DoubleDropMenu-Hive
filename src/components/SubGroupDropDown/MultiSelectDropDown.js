@@ -37,8 +37,8 @@ const MultiSelectDropDown = memo((props) => {
     );
 
     /* Called when the items array changes. This makes sure that whenever the
-      dropDownName value changes, we clear the selected items.
-   */
+    dropDownName value changes, we clear the selected items.
+ */
     useEffect(() => {
         setSelected({ selected: [] });
         setItem([]);

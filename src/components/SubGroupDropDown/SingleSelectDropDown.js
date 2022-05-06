@@ -27,10 +27,10 @@ const SingleSelectDropDown = memo((props) => {
         setItem(handleAutoFill(value));
 
         /* - Use this set-state hook to notify the MultiSelectDropDown component,
-            of the newly selected group.
-           - This will allow the MultiSelectDropDown to re-render since the component's
-            prop values change.
-        */
+        of the newly selected group.
+       - This will allow the MultiSelectDropDown to re-render since the component's
+        prop values change.
+    */
         setList(value);
     };
 
